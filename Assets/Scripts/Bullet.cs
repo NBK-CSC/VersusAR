@@ -14,5 +14,6 @@ public class Bullet : MonoBehaviour
     {
         if (other.TryGetComponent(out Soldier soldier))
             soldier.TakeDamage(_damage);
+        Destroy(gameObject);
     }
 }

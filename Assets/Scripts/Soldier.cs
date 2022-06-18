@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -7,47 +6,62 @@ public class Soldier : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private Weapon _weapon;
-    [SerializeField] private float _secondsBetweenShot;
-    [SerializeField] private int _amountAmmunitionInMagazine;
 
-    private float _lastShootTime;
+    private bool canShot=true;
+    private int _amountAmmunitionsInStripperСlip;
+    private float _lastShotTime;
     private Animator _animator;
     
-    private void Start()    {
+    private void Start()
+    {
         _animator = GetComponent<Animator>();
     }
     
     private void Update(){
-        if (_lastShootTime <= 0){
-            Fire();
-            _lastShootTime = 30;
+        if (_health> 0 && TryDetectEnemy() && canShot)
+        {
+            canShot = false;
+            UseWeapon();
         }
-        _lastShootTime -= Time.deltaTime;
     }
 
-    private void Fire(){
-        StartCoroutine(DelayShoot());
+    private void UseWeapon()
+    {
+        StartCoroutine(_amountAmmunitionsInStripperСlip <= 0 ? DelayReload() : DelayShoot());
     }
     
-    IEnumerator DelayShoot() {
-        while(_amountAmmunitionInMagazine>0){
-            _animator.SetTrigger("Shoot");
-            _weapon.Shoot();
-            _amountAmmunitionInMagazine--;
-            yield return new WaitForSeconds(_secondsBetweenShot);
-        }
-        Reload();
+    IEnumerator DelayShoot()
+    {
+        _animator.SetTrigger("Shoot");
+        _weapon.Shoot();
+        _amountAmmunitionsInStripperСlip--;
+        yield return new WaitForSeconds(_weapon.SecondsBetweenShot);
+        if (_amountAmmunitionsInStripperСlip<=0)
+            yield return StartCoroutine(DelayReload());
+        canShot = true;
     }
 
-    private void Reload(){
+    IEnumerator DelayReload()
+    {
+        canShot = false;
         _animator.SetTrigger("Reload");
-        _amountAmmunitionInMagazine = 30;//TODO
+        yield return new WaitForSeconds(_weapon.TimeReload);
+        _amountAmmunitionsInStripperСlip = _weapon.NumberMaxAmmunitionsInStripperСlip;//TODO
+        canShot = true;
     }
 
     public void TakeDamage(int damage){
         _health -= damage;
         if (_health <= 0)
             Die();
+    }
+
+    private bool TryDetectEnemy()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+            return hit.collider.gameObject.TryGetComponent<Soldier>(out Soldier soldier);
+        return false;
     }
 
     private void Die() {

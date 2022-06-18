@@ -2737,8 +2737,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.5746918, z: 1}
-  m_Center: {x: 0, y: 1.311851, z: 0}
+  m_Size: {x: 1, y: 2.6774168, z: 1}
+  m_Center: {x: 0, y: 1.2604885, z: 0}
 --- !u!114 &7233679746355152983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2753,8 +2753,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _weapon: {fileID: 596611019240582914}
-  _secondsBetweenShot: 0.1
-  _amountAmmunitionInMagazine: 30
 --- !u!1 &7233679746084466285
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,6 +4091,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shoopPoint: {fileID: 6479631844329368715}
   _bulletTemlate: {fileID: 4887040511739020427, guid: 63e5347a069873a4b9c8bdb27de48b74, type: 3}
+  "_numberMaxAmmunitionsInStripper\u0421lip": 30
+  _secondsBetweenShot: 0.1
+  _timeReload: 3.6
 --- !u!1 &7233679746084485239
 GameObject:
   m_ObjectHideFlags: 0
