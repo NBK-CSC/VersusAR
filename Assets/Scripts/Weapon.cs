@@ -9,4 +9,5 @@ public class Weapon : MonoBehaviour
     {
         Instantiate(_bulletTemlate, _shoopPoint.position, transform.rotation);
     }
+
 }
