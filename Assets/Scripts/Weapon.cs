@@ -7,9 +7,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] private int _numberMaxAmmunitionsInStripperСlip;
     [SerializeField] private float _secondsBetweenShot;
     [SerializeField] private float _timeReload;
-    public int NumberMaxAmmunitionsInStripperСlip { get { return _numberMaxAmmunitionsInStripperСlip; } }
-    public float SecondsBetweenShot { get { return _secondsBetweenShot; } }
-    public float TimeReload { get { return _timeReload; } }
+    public int NumberMaxAmmunitionsInStripperСlip => _numberMaxAmmunitionsInStripperСlip;
+    public float SecondsBetweenShot => _secondsBetweenShot;
+    public float TimeReload => _timeReload;
 
     public void Shoot()
     {

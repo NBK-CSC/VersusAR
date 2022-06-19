@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 public class Soldier : MonoBehaviour
@@ -11,6 +12,10 @@ public class Soldier : MonoBehaviour
     private int _amountAmmunitionsInStripperСlip;
     private float _lastShotTime;
     private Animator _animator;
+
+    public int Health => _health;
+    
+    public event UnityAction<int> HealthChanged;
     
     private void Start()
     {
@@ -52,6 +57,7 @@ public class Soldier : MonoBehaviour
 
     public void TakeDamage(int damage){
         _health -= damage;
+        HealthChanged?.Invoke(_health);
         if (_health <= 0)
             Die();
     }
