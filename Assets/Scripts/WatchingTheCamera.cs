@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class WatchingTheCameras : MonoBehaviour
+public class WatchingTheCamera : MonoBehaviour
 {
-    [SerializeField] private Canvas _canvas;
     [SerializeField] private Camera _camera;
     
     private void Start()
