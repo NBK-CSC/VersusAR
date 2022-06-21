@@ -127,12 +127,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 5127771619569181119}
+  _defaultTransformParent: {fileID: 0}
   _ammunitionTemlate: {fileID: 5469658289416450788, guid: bcc7a34d8c279f2429cb78724c21644b, type: 3}
   _weaponLevel: 7
   "_amountAmmunitionsInStripper\u0421lip": 0
   "_numberMaxAmmunitionsInStripper\u0421lip": 1
-  _secondsBetweenShot: 0
-  _timeReload: 0
+  _secondsBetweenShot: 5
+  _timeReload: 5
 --- !u!65 &-861194987317928492
 BoxCollider:
   m_ObjectHideFlags: 0

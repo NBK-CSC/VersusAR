@@ -3,6 +3,7 @@ using UnityEngine;
 public class Firearms : MonoBehaviour, IWeapon
 {
     [SerializeField] private Transform _shootPoint;
+    [SerializeField] private Transform _defaultTransformParent;
     [SerializeField] private Ammunition _ammunitionTemlate;
     [SerializeField] private int _weaponLevel;
     [SerializeField] private int _amountAmmunitionsInStripperСlip;
@@ -11,7 +12,6 @@ public class Firearms : MonoBehaviour, IWeapon
     [SerializeField] private float _timeReload;
     
     public float TimeReload => _timeReload;
-    public int AmountAmmunitionsInStripperСlip => _amountAmmunitionsInStripperСlip;
     public float SecondsBetweenImpact => _secondsBetweenShot;
     public int WeaponLevel => _weaponLevel;
     private void Start()
@@ -23,7 +23,19 @@ public class Firearms : MonoBehaviour, IWeapon
     {
         return _amountAmmunitionsInStripperСlip > 0;
     }
-    
+
+    public void ChangeQuality(Transform transformParent, bool isActive=false)
+    {
+        Transform tempTransformParent;
+        if (transformParent is null)
+            tempTransformParent = _defaultTransformParent;
+        else tempTransformParent = transformParent;
+        transform.parent =tempTransformParent;
+        transform.rotation = tempTransformParent.rotation;
+        transform.localPosition = new Vector3(0, 0, 0);
+        gameObject.GetComponent<Collider>().enabled = isActive;
+    }
+
     public void ReloadWeapon()
     {
         _amountAmmunitionsInStripperСlip = _numberMaxAmmunitionsInStripperСlip;

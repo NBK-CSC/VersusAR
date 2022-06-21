@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141772224124617960}
-  m_LocalRotation: {x: -0.7071068, y: -0.00000006181724, z: 0.000000061817225, w: 0.7071067}
-  m_LocalPosition: {x: -20.86, y: 0, z: 10.67}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: -0.00000044502963, y: 0.70710737, z: -0.7071063, w: 0.00000038743013}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!33 &2141772224121329896
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -91,14 +91,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141772224124617960}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc8f8fa8c3a568e49a9e604c1053b937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 20
   _weaponLevel: 1
-  _secondsBetweenHit: 0
+  _secondsBetweenHit: 1
 --- !u!65 &8058898081920338588
 BoxCollider:
   m_ObjectHideFlags: 0

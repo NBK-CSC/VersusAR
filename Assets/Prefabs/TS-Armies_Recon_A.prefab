@@ -3127,6 +3127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
+  _defaultWeapon: {fileID: 1713863809219440375}
+  _transformWeaponContainer: {fileID: 7233679746084170197}
+  _secondsAtDraw: 1
 --- !u!1 &7233679746084466285
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,7 +4430,8 @@ Transform:
   m_LocalRotation: {x: -0.6707958, y: -0.07737058, z: 0.008264296, w: 0.73754895}
   m_LocalPosition: {x: -0.17897114, y: 0.033303782, z: 0.15244628}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6453772734312131064}
   m_Father: {fileID: 7233679746084228935}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7603,3 +7607,76 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.9288881, y: 0.09075534, z: -0.00000010430813}
     m_Extent: {x: 0.3065987, y: 0.27441218, z: 0.21365635}
   m_DirtyAABB: 0
+--- !u!1001 &4911582652001038640
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7233679746084170197}
+    m_Modifications:
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141772224124617960, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+      propertyPath: m_Name
+      value: w_knife
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+--- !u!4 &6453772734312131064 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+  m_PrefabInstance: {fileID: 4911582652001038640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1713863809219440375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6044301754438393799, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+  m_PrefabInstance: {fileID: 4911582652001038640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8f8fa8c3a568e49a9e604c1053b937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

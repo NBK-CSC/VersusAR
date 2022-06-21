@@ -101,8 +101,8 @@ MonoBehaviour:
   _weaponLevel: 2
   "_amountAmmunitionsInStripper\u0421lip": 0
   "_numberMaxAmmunitionsInStripper\u0421lip": 8
-  _secondsBetweenShot: 0
-  _timeReload: 0
+  _secondsBetweenShot: 0.2
+  _timeReload: 2.6
 --- !u!65 &1800996039648348590
 BoxCollider:
   m_ObjectHideFlags: 0
