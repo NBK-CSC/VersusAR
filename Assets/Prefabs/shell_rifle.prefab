@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 100
-  _damage: 1
+  _damage: 10
+  _distanceFlightAmmunition: 300
 --- !u!136 &3131259150749761809
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -97,7 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 8572304341827379123}
-  _ammunitionTemlate: {fileID: 4194777559422762728, guid: ee0438dbe35ca094f8d9fa27c1db70d4, type: 3}
+  _defaultTransformParent: {fileID: 0}
+  _ammunitionTemlate: {fileID: 8462004198252628836, guid: bc9fa4da54cf4964b9f94dcea62c7f26, type: 3}
   _weaponLevel: 2
   "_amountAmmunitionsInStripper\u0421lip": 0
   "_numberMaxAmmunitionsInStripper\u0421lip": 8

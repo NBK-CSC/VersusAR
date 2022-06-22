@@ -78,14 +78,15 @@ public class Soldier : MonoBehaviour
     private bool TryDetectEnemy()
     {
         Ray ray = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, ~(1 << 8)))
+        if (Physics.Raycast(ray, out RaycastHit hit, _weapon.DistanceImpact, ~(1 << 8)))
             return hit.collider.gameObject.TryGetComponent<Soldier>(out Soldier soldier);
         return false;
     }
 
     public void SetWeapon(IWeapon weapon)
     {
-        _weapon?.ChangeQuality(_weapon is Firearms?null:_transformWeaponContainer, true);
+        Debug.Log("SetWeapon");
+        _weapon?.ChangeQuality(_weapon is Firearms?null:_transformWeaponContainer, !(_weapon is  Firearms));
         _weapon = weapon;
         _animator.SetInteger("WeaponLevel_int", _weapon.WeaponLevel);
         _animator.SetFloat("WeaponLevel_float", _weapon.WeaponLevel);

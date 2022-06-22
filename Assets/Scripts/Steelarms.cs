@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Steelarms : MonoBehaviour, IWeapon
@@ -5,6 +6,10 @@ public class Steelarms : MonoBehaviour, IWeapon
     [SerializeField] private int _damage;
     [SerializeField] private int _weaponLevel;
     [SerializeField] private float _secondsBetweenHit;
+    [SerializeField] private float _distanceAttack;
+    [SerializeField] private Soldier _owner;
+    
+    public float DistanceImpact => _distanceAttack;
     public int WeaponLevel => _weaponLevel;
     public float SecondsBetweenImpact => _secondsBetweenHit;
 
@@ -12,7 +17,7 @@ public class Steelarms : MonoBehaviour, IWeapon
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Soldier soldier))
+        if (other.TryGetComponent(out Soldier soldier) && !Equals(_owner, soldier))
             soldier.TakeDamage(_damage);
     }
     

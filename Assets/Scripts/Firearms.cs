@@ -10,7 +10,8 @@ public class Firearms : MonoBehaviour, IWeapon
     [SerializeField] private int _numberMaxAmmunitionsInStripperСlip;
     [SerializeField] private float _secondsBetweenShot;
     [SerializeField] private float _timeReload;
-    
+
+    public float DistanceImpact => _ammunitionTemlate.DistanceFlightAmmunition;
     public float TimeReload => _timeReload;
     public float SecondsBetweenImpact => _secondsBetweenShot;
     public int WeaponLevel => _weaponLevel;

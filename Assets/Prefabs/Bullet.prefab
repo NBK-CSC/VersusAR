@@ -109,4 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 30
-  _damage: 3
+  _damage: 20
+  _distanceFlightAmmunition: 100
