@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Steelarms : MonoBehaviour, IWeapon
@@ -21,12 +20,12 @@ public class Steelarms : MonoBehaviour, IWeapon
             soldier.TakeDamage(_damage);
     }
     
-    public void ChangeQuality(Transform transformParent, bool isActive=false)
+    public void ChangeQuality(Transform transformParent, bool isNotActive=false)
     {
         transform.parent =transformParent;
         transform.rotation = transformParent.rotation;
         transform.localPosition = new Vector3(0, 0, 0);
-        gameObject.SetActive(!isActive);
+        gameObject.SetActive(!isNotActive);
     }
     
     public bool CanImpact()

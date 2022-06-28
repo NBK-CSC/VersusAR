@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 3469831220667229018}
+  _defaultTransformParent: {fileID: 0}
   _ammunitionTemlate: {fileID: 5706791154860459578, guid: 169047a91f4a82c4bb643b8c765b9b2f, type: 3}
   _weaponLevel: 3
   "_amountAmmunitionsInStripper\u0421lip": 0
@@ -142,7 +143,7 @@ BoxCollider:
   m_GameObject: {fileID: 8708530887430020954}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.4311621, y: 0.5805052, z: 0.1478098}
   m_Center: {x: -0.24327232, y: 0.030337017, z: -0.00000027567145}

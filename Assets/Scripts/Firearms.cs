@@ -34,7 +34,7 @@ public class Firearms : MonoBehaviour, IWeapon
         transform.parent =tempTransformParent;
         transform.rotation = tempTransformParent.rotation;
         transform.localPosition = new Vector3(0, 0, 0);
-        gameObject.GetComponent<Collider>().enabled = isActive;
+        //_collider.enabled = isActive;
     }
 
     public void ReloadWeapon()

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="aug" size="3.000000 2.221914" />
+    <ImageTarget name="awp" size="3.000000 1.752355" />
+    <ImageTarget name="beretta92" size="3.000000 2.756184" />
+    <ImageTarget name="m3" size="3.000000 1.902246" />
+    <ImageTarget name="m249" size="3.000000 1.596774" />
+    <ImageTarget name="m4" size="3.000000 1.907631" />
+    <ImageTarget name="scar" size="3.000000 2.080000" />
+    <ImageTarget name="smaw" size="3.000000 2.190000" />
+    <ImageTarget name="ak12" size="3.000000 1.765625" />
     <ImageTarget name="eagle" size="3.000000 3.000000" />
     <ImageTarget name="bear" size="3.000000 3.000000" />
   </Tracking>

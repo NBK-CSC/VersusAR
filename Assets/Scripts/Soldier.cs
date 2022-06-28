@@ -41,7 +41,7 @@ public class Soldier : MonoBehaviour
         StartCoroutine(_weapon.CanImpact() ? DelayShoot(): DelayReload() );
     }
     
-    IEnumerator DelayShoot()
+    private IEnumerator DelayShoot()
     {
         _animator.SetTrigger("Impact");
         _weapon.Impact();
@@ -51,7 +51,7 @@ public class Soldier : MonoBehaviour
         canShot = true;
     }
 
-    IEnumerator DelayReload()
+    private IEnumerator DelayReload()
     {
         canShot = false;
         _animator.SetTrigger("Reload");
@@ -60,7 +60,7 @@ public class Soldier : MonoBehaviour
         canShot = true;
     }
 
-    IEnumerator DelayDraw()
+    private IEnumerator DelayDraw()
     {
         canShot = false;
         _animator.SetTrigger("Draw");
@@ -83,11 +83,20 @@ public class Soldier : MonoBehaviour
         return false;
     }
 
+    private void DropWeapon()
+    {
+        _weapon?.ChangeQuality(_weapon is Firearms?null:_transformWeaponContainer, true);
+    }
+
+    public bool CanSetWeapon()
+    {
+        return _weapon is Steelarms;
+    }
+
     public void SetWeapon(IWeapon weapon)
     {
-        Debug.Log("SetWeapon");
-        _weapon?.ChangeQuality(_weapon is Firearms?null:_transformWeaponContainer, !(_weapon is  Firearms));
-        _weapon = weapon;
+        DropWeapon();
+        _weapon = weapon ?? _defaultWeapon;
         _animator.SetInteger("WeaponLevel_int", _weapon.WeaponLevel);
         _animator.SetFloat("WeaponLevel_float", _weapon.WeaponLevel);
         StartCoroutine(DelayDraw());
