@@ -14,8 +14,6 @@ public class FinderWeapon : MonoBehaviour
             _soldier.SetWeapon(weaponCard.GetWeapon());
             _currentWeaponCard = weaponCard;
         }
-
-
     }
 
     private void OnTriggerExit(Collider other)

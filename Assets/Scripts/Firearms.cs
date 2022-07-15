@@ -2,22 +2,31 @@ using UnityEngine;
 
 public class Firearms : MonoBehaviour, IWeapon
 {
-    [SerializeField] private Transform _shootPoint;
-    [SerializeField] private Transform _defaultTransformParent;
-    [SerializeField] private Ammunition _ammunitionTemlate;
+    [Header("Characteristic")]
     [SerializeField] private int _weaponLevel;
-    [SerializeField] private int _amountAmmunitionsInStripperСlip;
     [SerializeField] private int _numberMaxAmmunitionsInStripperСlip;
+    [SerializeField] private int _numberMaxStripperСlip;
     [SerializeField] private float _secondsBetweenShot;
     [SerializeField] private float _timeReload;
-
+    
+    [Header("Ammunition")]
+    [SerializeField] private Ammunition _ammunitionTemlate;
+    
+    [Header("Location points")]
+    [SerializeField] private Transform _shootPoint;
+    [SerializeField] private Transform _defaultTransformParent;
+    
+    private int _amountAmmunitionsInStripperСlip;
+    private int _amountStripperСlip;
     public float DistanceImpact => _ammunitionTemlate.DistanceFlightAmmunition;
     public float TimeReload => _timeReload;
     public float SecondsBetweenImpact => _secondsBetweenShot;
     public int WeaponLevel => _weaponLevel;
+    
     private void Start()
     {
         ReloadWeapon();
+        Refill();
     }
 
     public bool CanImpact()
@@ -25,21 +34,32 @@ public class Firearms : MonoBehaviour, IWeapon
         return _amountAmmunitionsInStripperСlip > 0;
     }
 
-    public void ChangeQuality(Transform transformParent, bool isActive=false)
+    public void ChangeQuality(Transform transformParent, bool isActive)
     {
-        Transform tempTransformParent;
-        if (transformParent is null)
-            tempTransformParent = _defaultTransformParent;
-        else tempTransformParent = transformParent;
+        Transform tempTransformParent = transformParent ?? _defaultTransformParent;
         transform.parent =tempTransformParent;
         transform.rotation = tempTransformParent.rotation;
         transform.localPosition = new Vector3(0, 0, 0);
-        //_collider.enabled = isActive;
+    }
+
+    public bool CanReload()
+    {
+        return _amountStripperСlip > 0;
     }
 
     public void ReloadWeapon()
     {
-        _amountAmmunitionsInStripperСlip = _numberMaxAmmunitionsInStripperСlip;
+        if (_amountStripperСlip > 0)
+        {
+            _amountAmmunitionsInStripperСlip = _numberMaxAmmunitionsInStripperСlip;
+            _amountStripperСlip--;
+        }
+    }
+
+
+    private void Refill()
+    {
+        _amountStripperСlip = _numberMaxStripperСlip;
     }
 
     public void Impact()

@@ -96,14 +96,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e054a312282b340a89eda6cd339500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootPoint: {fileID: 8572304341827379123}
-  _defaultTransformParent: {fileID: 0}
-  _ammunitionTemlate: {fileID: 8462004198252628836, guid: bc9fa4da54cf4964b9f94dcea62c7f26, type: 3}
   _weaponLevel: 2
-  "_amountAmmunitionsInStripper\u0421lip": 0
   "_numberMaxAmmunitionsInStripper\u0421lip": 8
+  "_numberMaxStripper\u0421lip": 5
   _secondsBetweenShot: 0.2
   _timeReload: 2.6
+  _ammunitionTemlate: {fileID: 8462004198252628836, guid: bc9fa4da54cf4964b9f94dcea62c7f26, type: 3}
+  _shootPoint: {fileID: 8572304341827379123}
+  _defaultTransformParent: {fileID: 0}
 --- !u!65 &1800996039648348590
 BoxCollider:
   m_ObjectHideFlags: 0

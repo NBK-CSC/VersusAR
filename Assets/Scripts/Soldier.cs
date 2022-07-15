@@ -11,11 +11,10 @@ public class Soldier : MonoBehaviour
     [SerializeField] private Steelarms _defaultWeapon;
     [SerializeField] private Transform _transformWeaponContainer;
     [SerializeField] private float _secondsAtDraw;
-    
-    
+
     private IWeapon _weapon;
     
-    private bool canShot=true;
+    private bool _canShot=true;
     private Animator _animator;
 
     public int Health => _health;
@@ -29,15 +28,20 @@ public class Soldier : MonoBehaviour
     
     private void Update()
     {
-        if (_health> 0 && TryDetectEnemy() && canShot)
+        if (_health> 0 && TryDetectEnemy() && _canShot)
         {
-            canShot = false;
+            _canShot = false;
             UseWeapon();
         }
     }
 
     private void UseWeapon()
     {
+        if (!_weapon.CanReload() && !_weapon.CanImpact())
+        {
+            SetWeapon(_defaultWeapon);
+            return;
+        }
         StartCoroutine(_weapon.CanImpact() ? DelayShoot(): DelayReload() );
     }
     
@@ -46,35 +50,27 @@ public class Soldier : MonoBehaviour
         _animator.SetTrigger("Impact");
         _weapon.Impact();
         yield return new WaitForSeconds(_weapon.SecondsBetweenImpact);
-        if (!_weapon.CanImpact() && _weapon is Firearms)
+        if (!_weapon.CanImpact() && _weapon.CanReload())
             yield return StartCoroutine(DelayReload());
-        canShot = true;
+        _canShot = true;
     }
 
     private IEnumerator DelayReload()
     {
-        canShot = false;
+        _canShot = false;
         _animator.SetTrigger("Reload");
         yield return new WaitForSeconds(((Firearms)_weapon).TimeReload);
         ((Firearms)_weapon).ReloadWeapon();
-        canShot = true;
+        _canShot = true;
     }
 
     private IEnumerator DelayDraw()
     {
-        canShot = false;
+        _canShot = false;
         _animator.SetTrigger("Draw");
         yield return new WaitForSeconds(_secondsAtDraw);
-        canShot = true;
+        _canShot = true;
     }
-
-    public void TakeDamage(int damage){
-        _health -= damage;
-        HealthChanged?.Invoke(_health);
-        if (_health <= 0)
-            Die();
-    }
-
     private bool TryDetectEnemy()
     {
         Ray ray = new Ray(transform.position, transform.forward);
@@ -82,12 +78,26 @@ public class Soldier : MonoBehaviour
             return hit.collider.gameObject.TryGetComponent<Soldier>(out Soldier soldier);
         return false;
     }
-
+    
+    private void Die() {
+        _animator.SetInteger("Death_int",Random.Range(1,5));
+        _animator.SetTrigger("Death");
+        BoxCollider collider = gameObject.GetComponent<BoxCollider>();
+        collider.enabled = false;
+    }
+    
     private void DropWeapon()
     {
-        _weapon?.ChangeQuality(_weapon is Firearms?null:_transformWeaponContainer, true);
+        _weapon?.ChangeQuality(null, true);
     }
-
+    
+    public void TakeDamage(int damage){
+        _health -= damage;
+        HealthChanged?.Invoke(_health);
+        if (_health <= 0)
+            Die();
+    }
+    
     public bool CanSetWeapon()
     {
         return _weapon is Steelarms;
@@ -100,13 +110,6 @@ public class Soldier : MonoBehaviour
         _animator.SetInteger("WeaponLevel_int", _weapon.WeaponLevel);
         _animator.SetFloat("WeaponLevel_float", _weapon.WeaponLevel);
         StartCoroutine(DelayDraw());
-        _weapon.ChangeQuality(_transformWeaponContainer);
-    }
-
-    private void Die() {
-        _animator.SetInteger("Death_int",Random.Range(1,5));
-        _animator.SetTrigger("Death");
-        BoxCollider collider = gameObject.GetComponent<BoxCollider>();
-        collider.enabled = false;
+        _weapon.ChangeQuality(_transformWeaponContainer,false);
     }
 }
