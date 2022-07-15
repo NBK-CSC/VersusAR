@@ -19,6 +19,7 @@ public class Soldier : MonoBehaviour
 
     public int Health => _health;
     public event UnityAction<int> HealthChanged;
+    public event UnityAction<int, StripperClipItem> WeaponReloaded;
     
     private void Start()
     {
@@ -60,8 +61,14 @@ public class Soldier : MonoBehaviour
         _canShot = false;
         _animator.SetTrigger("Reload");
         yield return new WaitForSeconds(((Firearms)_weapon).TimeReload);
-        ((Firearms)_weapon).ReloadWeapon();
+        Reload((Firearms)_weapon);
         _canShot = true;
+    }
+
+    private void Reload(Firearms weapon)
+    {
+        weapon.ReloadWeapon();
+        WeaponReloaded?.Invoke(weapon.AmountStripperСlip,weapon.StripperClip);
     }
 
     private IEnumerator DelayDraw()

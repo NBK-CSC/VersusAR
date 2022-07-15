@@ -8,6 +8,7 @@ public class Firearms : MonoBehaviour, IWeapon
     [SerializeField] private int _numberMaxStripperСlip;
     [SerializeField] private float _secondsBetweenShot;
     [SerializeField] private float _timeReload;
+    [SerializeField] private StripperClipItem _stripperClipItem;
     
     [Header("Ammunition")]
     [SerializeField] private Ammunition _ammunitionTemlate;
@@ -22,7 +23,8 @@ public class Firearms : MonoBehaviour, IWeapon
     public float TimeReload => _timeReload;
     public float SecondsBetweenImpact => _secondsBetweenShot;
     public int WeaponLevel => _weaponLevel;
-    
+    public int AmountStripperСlip => _amountStripperСlip;
+    public StripperClipItem StripperClip => _stripperClipItem;
     private void Start()
     {
         ReloadWeapon();

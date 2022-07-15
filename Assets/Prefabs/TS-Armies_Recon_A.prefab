@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 260719241473584447}
   - component: {fileID: 1930125424122907942}
   m_Layer: 8
-  m_Name: HealthBarCanvas
+  m_Name: InfoBarCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,9 +29,10 @@ RectTransform:
   m_GameObject: {fileID: 863465577884072018}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.11}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0.01}
+  m_LocalScale: {x: 0.001, y: 0.002, z: 0.01}
   m_Children:
   - {fileID: 4215196852136609272}
+  - {fileID: 4735945115236429177}
   m_Father: {fileID: 7233679746084170625}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -141,7 +142,7 @@ RectTransform:
   m_GameObject: {fileID: 3446934740149255960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 20, z: 10}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 2889307086559564708}
   - {fileID: 6127168879668224595}
@@ -218,6 +219,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _trackableSoldier: {fileID: 7233679746355152983}
   _slider: {fileID: 3846207453366543495}
+--- !u!1 &4069444748163324231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4735945115236429177}
+  - component: {fileID: 6962488956673363012}
+  m_Layer: 8
+  m_Name: AmmoStripperClip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4735945115236429177
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069444748163324231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2913921002839351905}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 326}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6962488956673363012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069444748163324231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f364d74e65bd8489581c5ed7d6abea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _imageTemplate: {fileID: 2700752878380063294, guid: 8cb0bf871ea0b074580d32c05a01e392, type: 3}
+  _soldier: {fileID: 7233679746355152983}
+  _distanceBetweenItems: 350
 --- !u!1 &4573650316838588905
 GameObject:
   m_ObjectHideFlags: 0
