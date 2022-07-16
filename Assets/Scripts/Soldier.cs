@@ -12,7 +12,6 @@ public class Soldier : MonoBehaviour
     [SerializeField] private Transform _transformWeaponContainer;
     [SerializeField] private float _secondsAtDraw;
     
-    
     private IWeapon _weapon;
     
     private bool canShot=true;
@@ -85,7 +84,6 @@ public class Soldier : MonoBehaviour
 
     public void SetWeapon(IWeapon weapon)
     {
-        Debug.Log("SetWeapon");
         _weapon?.ChangeQuality(_weapon is Firearms?null:_transformWeaponContainer, !(_weapon is  Firearms));
         _weapon = weapon;
         _animator.SetInteger("WeaponLevel_int", _weapon.WeaponLevel);

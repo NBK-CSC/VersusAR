@@ -8,12 +8,15 @@ public class Steelarms : MonoBehaviour, IWeapon
     [SerializeField] private float _secondsBetweenHit;
     [SerializeField] private float _distanceAttack;
     [SerializeField] private Soldier _owner;
-    
+    [SerializeField] private ParticleSystem _particleTrackBlow;
     public float DistanceImpact => _distanceAttack;
     public int WeaponLevel => _weaponLevel;
     public float SecondsBetweenImpact => _secondsBetweenHit;
 
-    public void Impact() { }
+    public void Impact()
+    {
+        _particleTrackBlow.Play();
+    }
 
     private void OnTriggerEnter(Collider other)
     {

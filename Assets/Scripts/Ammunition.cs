@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Ammunition : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] protected float _speed;
     [SerializeField] private int _damage;
     [SerializeField] private float _distanceFlightAmmunition;
     private Vector3 _startPosition;
     public float DistanceFlightAmmunition => _distanceFlightAmmunition;
-    private void Start()
+    protected virtual void Start()
     {
         _startPosition = transform.position;
     }
@@ -29,7 +29,7 @@ public class Ammunition : MonoBehaviour
         }
     }
 
-    public void DestroyAmmunition()
+    protected virtual void DestroyAmmunition()
     {
         Destroy(gameObject);
     }
