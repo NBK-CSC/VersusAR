@@ -97,15 +97,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e054a312282b340a89eda6cd339500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootPoint: {fileID: 8572304341827379123}
-  _particleEjectionShells: {fileID: 4142559399162112360}
-  _defaultTransformParent: {fileID: 0}
-  _ammunitionTemlate: {fileID: 8462004198252628836, guid: bc9fa4da54cf4964b9f94dcea62c7f26, type: 3}
   _weaponLevel: 2
   "_numberMaxAmmunitionsInStripper\u0421lip": 8
+  "_numberMaxStripper\u0421lip": 5
   _secondsBetweenShot: 0.2
   _timeReload: 2.6
   _shutterTwistTime: 0
+  _stripperClipItem: {fileID: 11400000, guid: 3a046f08ac5676047910ab57f14abf79, type: 2}
+  _ammunitionTemlate: {fileID: 8462004198252628836, guid: bc9fa4da54cf4964b9f94dcea62c7f26, type: 3}
+  _shootPoint: {fileID: 8572304341827379123}
+  _defaultTransformParent: {fileID: 0}
+  _particleEjectionShells: {fileID: 5808695982761463791, guid: d3cb5472c226ece439e6da55fa9d3d55, type: 3}
 --- !u!65 &1800996039648348590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -209,10 +211,5 @@ PrefabInstance:
 --- !u!4 &4142559399162112279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5808695982761463696, guid: d3cb5472c226ece439e6da55fa9d3d55, type: 3}
-  m_PrefabInstance: {fileID: 7629645236381099655}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &4142559399162112360 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5808695982761463791, guid: d3cb5472c226ece439e6da55fa9d3d55, type: 3}
   m_PrefabInstance: {fileID: 7629645236381099655}
   m_PrefabAsset: {fileID: 0}

@@ -97,16 +97,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e054a312282b340a89eda6cd339500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootPoint: {fileID: 2211873818016204081}
-  _shellPoint: {fileID: 115373946375731886}
-  _particleEjectionShells: {fileID: 273950528454986578, guid: 249e65ea03ebd1c4c83a0ee14737a159, type: 3}
-  _defaultTransformParent: {fileID: 0}
-  _ammunitionTemlate: {fileID: 5706791154860459578, guid: 169047a91f4a82c4bb643b8c765b9b2f, type: 3}
   _weaponLevel: 3
-  "_amountAmmunitionsInStripper\u0421lip": 0
   "_numberMaxAmmunitionsInStripper\u0421lip": 30
+  "_numberMaxStripper\u0421lip": 3
   _secondsBetweenShot: 0.1
   _timeReload: 3.6
+  _shutterTwistTime: 0
+  _stripperClipItem: {fileID: 11400000, guid: a9808d6ebd2de264190713551005b8fa, type: 2}
+  _ammunitionTemlate: {fileID: 5706791154860459578, guid: 169047a91f4a82c4bb643b8c765b9b2f, type: 3}
+  _shootPoint: {fileID: 2211873818016204081}
+  _defaultTransformParent: {fileID: 0}
+  _particleEjectionShells: {fileID: 273950528454986576, guid: 249e65ea03ebd1c4c83a0ee14737a159, type: 3}
 --- !u!65 &6958706090663571263
 BoxCollider:
   m_ObjectHideFlags: 0

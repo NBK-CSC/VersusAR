@@ -7,5 +7,6 @@ public interface IWeapon
     public float SecondsBetweenImpact { get;}
     public void Impact();
     public bool CanImpact();
-    public void ChangeQuality(Transform transformParent, bool isActive=false);
+    public bool CanReload();
+    public void ChangeQuality(Transform transformParent, bool isActive);
 }
