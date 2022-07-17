@@ -3023,6 +3023,7 @@ GameObject:
   - component: {fileID: 7233679746355152982}
   - component: {fileID: 7233679746355152981}
   - component: {fileID: 7233679746355152983}
+  - component: {fileID: 4805453679696925109}
   m_Layer: 0
   m_Name: TS-Armies_Recon_A
   m_TagString: Untagged
@@ -3179,9 +3180,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
+  _secondsAtDraw: 1
   _defaultWeapon: {fileID: 1713863809219440375}
   _transformWeaponContainer: {fileID: 7233679746084170197}
-  _secondsAtDraw: 1
+--- !u!114 &4805453679696925109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233679746084465115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29497c1397556514f9b604589d570543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soldier: {fileID: 7233679746355152983}
+  _soldierAnimator: {fileID: 7233679746093934815}
 --- !u!1 &7233679746084466285
 GameObject:
   m_ObjectHideFlags: 0

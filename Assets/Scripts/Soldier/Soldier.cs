@@ -2,25 +2,29 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using Weapon;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Animator))]
 public class Soldier : MonoBehaviour
 {
     [SerializeField] private int _health;
+    [SerializeField] private float _secondsAtDraw;
     [SerializeField] private Steelarms _defaultWeapon;
     [SerializeField] private Transform _transformWeaponContainer;
-    [SerializeField] private float _secondsAtDraw;
-
-    private IWeapon _weapon;
     
+    private IWeapon _weapon;
     private bool _canShot=true;
     private Animator _animator;
 
     public int Health => _health;
-    public event UnityAction<int> HealthChanged;
-    public event UnityAction<int, StripperClipItem> WeaponReloaded;
+    public float SecondsAtDraw => _secondsAtDraw;
     
+    public event UnityAction<int> HealthChanged;
+    public event UnityAction<IWeapon, Action<bool>> WeaponReceived;
+    public event UnityAction<IWeapon, Action<bool>> WeaponImpacted;
+    public event UnityAction<Firearms, Action<bool>> WeaponReloaded;
+    public event UnityAction WeaponHandedOver;
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -38,15 +42,21 @@ public class Soldier : MonoBehaviour
 
     private void UseWeapon()
     {
-        if (!_weapon.CanReload() && !_weapon.CanImpact())
-        {
+        if (_weapon.CanImpact())
+            Impact();
+        else if (_weapon.CanReload()!=true)
             SetWeapon(_defaultWeapon);
-            return;
-        }
-        StartCoroutine(_weapon.CanImpact() ? DelayShoot(): DelayReload() );
+        else
+            Reload((Firearms)_weapon);
     }
-    
-    private IEnumerator DelayShoot()
+
+    private void Impact()
+    {
+        _weapon.Impact();
+        WeaponImpacted?.Invoke(_weapon,value=>_canShot=value);
+    }
+
+    /*private IEnumerator DelayShoot()
     {
         _animator.SetTrigger("Impact");
         _weapon.Impact();
@@ -54,30 +64,23 @@ public class Soldier : MonoBehaviour
         if (!_weapon.CanImpact() && _weapon.CanReload())
             yield return StartCoroutine(DelayReload());
         _canShot = true;
-    }
+    }*/
 
-    private IEnumerator DelayReload()
+    /*private IEnumerator DelayReload()
     {
         _canShot = false;
         _animator.SetTrigger("Reload");
         yield return new WaitForSeconds(((Firearms)_weapon).TimeReload);
         Reload((Firearms)_weapon);
         _canShot = true;
-    }
+    }*/
 
     private void Reload(Firearms weapon)
     {
         weapon.ReloadWeapon();
-        WeaponReloaded?.Invoke(weapon.AmountStripperСlip,weapon.StripperClip);
+        WeaponReloaded?.Invoke(weapon, value=>_canShot=value);
     }
-
-    private IEnumerator DelayDraw()
-    {
-        _canShot = false;
-        _animator.SetTrigger("Draw");
-        yield return new WaitForSeconds(_secondsAtDraw);
-        _canShot = true;
-    }
+    
     private bool TryDetectEnemy()
     {
         Ray ray = new Ray(transform.position, transform.forward);
@@ -96,6 +99,7 @@ public class Soldier : MonoBehaviour
     private void DropWeapon()
     {
         _weapon?.ChangeQuality(null, true);
+        WeaponHandedOver?.Invoke();
     }
     
     public void TakeDamage(int damage){
@@ -114,9 +118,7 @@ public class Soldier : MonoBehaviour
     {
         DropWeapon();
         _weapon = weapon ?? _defaultWeapon;
-        _animator.SetInteger("WeaponLevel_int", _weapon.WeaponLevel);
-        _animator.SetFloat("WeaponLevel_float", _weapon.WeaponLevel);
-        StartCoroutine(DelayDraw());
+        WeaponReceived?.Invoke(weapon, value=>_canShot=value);
         _weapon.ChangeQuality(_transformWeaponContainer,false);
     }
 }

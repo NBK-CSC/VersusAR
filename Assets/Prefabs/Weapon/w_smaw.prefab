@@ -128,11 +128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponLevel: 7
   "_numberMaxAmmunitionsInStripper\u0421lip": 1
-  "_numberMaxStripper\u0421lip": 1
+  "_numberMaxStripper\u0421lip": 2
   _secondsBetweenShot: 0
-  _timeReload: 3.6
   _shutterTwistTime: 0
-  _stripperClipItem: {fileID: 0}
+  _timeReload: 3.6
+  _stripperClipItem: {fileID: 11400000, guid: bc4d5de9b269e64478c29fb810183a01, type: 2}
   _ammunitionTemlate: {fileID: 6485744618790511372, guid: bcc7a34d8c279f2429cb78724c21644b, type: 3}
   _shootPoint: {fileID: 5127771619569181119}
   _defaultTransformParent: {fileID: 0}
