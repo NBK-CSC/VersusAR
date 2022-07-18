@@ -21,9 +21,11 @@ namespace Weapon
         public float DistanceImpact => _ammunitionTemlate.DistanceFlightAmmunition;
         public float SecondsBetweenImpact => _weaponData.SecondsBetweenShot;
         public int WeaponLevel => _weaponData.WeaponLevel;
-        public FirearmsData WeaponData => _weaponData;
         public float TimeReload => _weaponData.TimeReload;
         public int AmountStripperСlip => _amountStripperСlip;
+        public AudioClip ImpactAudio => _weaponData.ImpactAudio;
+        public AudioClip ReloadAudio => _weaponData.ReloadAudio;
+        public Sprite StripperClipSprite => _weaponData.Sprite;
         private void Start()
         {
             ReloadWeapon();

@@ -12,7 +12,7 @@ namespace Weapon
         public float DistanceImpact => _weaponData.DistanceAttack;
         public int WeaponLevel => _weaponData.WeaponLevel;
         public float SecondsBetweenImpact => _weaponData.SecondsBetweenHit;
-        public SteelarmsData WeaponData => _weaponData;
+        public AudioClip ImpactAudio => _weaponData.ImpactAudio;
 
         public void Impact()
         {

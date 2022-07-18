@@ -16,7 +16,7 @@ namespace Weapon
         private void ShowNumberStripperClip(IRecharging weapon, Action<bool> action )
         {
             DeleteSprites();
-            _imageTemplate.sprite = weapon.WeaponData.Sprite;
+            _imageTemplate.sprite = weapon.StripperClipSprite;
             for (int i = 0; i <= weapon.AmountStripperСlip; i++)
             {
                 float x = (i - weapon.AmountStripperСlip * 0.5f)*_distanceBetweenItems;
