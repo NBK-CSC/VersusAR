@@ -6,6 +6,7 @@ namespace Weapon
     public class FinderWeapon : MonoBehaviour
     {
         [SerializeField] private Soldier _soldier;
+        
         private WeaponCard _currentWeaponCard;
 
         private void OnTriggerEnter(Collider other)
@@ -21,7 +22,7 @@ namespace Weapon
         {
             if (other.gameObject.TryGetComponent<WeaponCard>(out var weaponCard) && Object.Equals(weaponCard, _currentWeaponCard))
             {
-                _soldier.SetWeapon(null);
+                _soldier.SetWeapon();
                 _currentWeaponCard = null;
             }
         }

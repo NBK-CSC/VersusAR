@@ -13,10 +13,10 @@ namespace Weapon
     
         private List<Image> _stripperClipItems=new List<Image>();
 
-        private void ShowNumberStripperClip(Firearms weapon, Action<bool> action )
+        private void ShowNumberStripperClip(IRecharging weapon, Action<bool> action )
         {
             DeleteSprites();
-            _imageTemplate.sprite = weapon.StripperClip.Sprite;
+            _imageTemplate.sprite = weapon.WeaponData.Sprite;
             for (int i = 0; i <= weapon.AmountStripperСlip; i++)
             {
                 float x = (i - weapon.AmountStripperСlip * 0.5f)*_distanceBetweenItems;

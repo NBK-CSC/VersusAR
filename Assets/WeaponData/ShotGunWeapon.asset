@@ -10,6 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 481022a638aab6d42ad20bd322a0ee81, type: 3}
-  m_Name: AWPStripperClip
+  m_Name: ShotGunWeapon
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
+  _weaponLevel: 4
+  "_numberMaxAmmunitionsInStripper\u0421lip": 6
+  "_numberMaxStripper\u0421lip": 5
+  _secondsBetweenShot: 1.3
+  _shutterTwistTime: 0.7
+  _timeReload: 3.6
+  _sprite: {fileID: 0}
+  _audio: {fileID: 0}

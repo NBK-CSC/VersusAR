@@ -4,18 +4,10 @@ using UnityEngine;
 
 namespace Weapon
 {
-    public class Firearms : MonoBehaviour, IWeapon
+    public class Firearms : MonoBehaviour, IRecharging
     {
-        [Header("Characteristic")]
-        [SerializeField] private int _weaponLevel;
-        [SerializeField] private int _numberMaxAmmunitionsInStripperСlip;
-        [SerializeField] private int _numberMaxStripperСlip;
-        [SerializeField] private float _secondsBetweenShot;
-        [SerializeField] private float _shutterTwistTime;
-        [SerializeField] private float _timeReload;
-    
-        [Header("Ammunition and clips")]
-        [SerializeField] private StripperClipItem _stripperClipItem;
+        [Header("Ammunition and Settings")]
+        [SerializeField] private FirearmsData _weaponData;
         [SerializeField] private Ammunition _ammunitionTemlate;
     
         [Header("Others")]
@@ -27,12 +19,11 @@ namespace Weapon
         private int _amountStripperСlip;
 
         public float DistanceImpact => _ammunitionTemlate.DistanceFlightAmmunition;
-        public float TimeReload => _timeReload;
-        public float SecondsBetweenImpact => _secondsBetweenShot;
-        public int WeaponLevel => _weaponLevel;
+        public float SecondsBetweenImpact => _weaponData.SecondsBetweenShot;
+        public int WeaponLevel => _weaponData.WeaponLevel;
+        public FirearmsData WeaponData => _weaponData;
+        public float TimeReload => _weaponData.TimeReload;
         public int AmountStripperСlip => _amountStripperСlip;
-        public StripperClipItem StripperClip => _stripperClipItem;
-    
         private void Start()
         {
             ReloadWeapon();
@@ -61,20 +52,19 @@ namespace Weapon
         {
             if (_amountStripperСlip > 0)
             {
-                _amountAmmunitionsInStripperСlip = _numberMaxAmmunitionsInStripperСlip;
+                _amountAmmunitionsInStripperСlip = _weaponData.NumberMaxAmmunitionsInStripperСlip;
                 _amountStripperСlip--;
             }
         }
-
-
+        
         private void Refill()
         {
-            _amountStripperСlip = _numberMaxStripperСlip;
+            _amountStripperСlip = _weaponData.NumberMaxStripperСlip;
         }
 
         private IEnumerator DelayExtractionSpentSleeve()
         {
-            yield return new WaitForSeconds(_shutterTwistTime);
+            yield return new WaitForSeconds(_weaponData.ShutterTwistTime);
             if (_particleEjectionShells)
                 _particleEjectionShells.Play();
         }

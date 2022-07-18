@@ -10,6 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 481022a638aab6d42ad20bd322a0ee81, type: 3}
-  m_Name: ShotgunStripperClip
+  m_Name: PistolWeapon
   m_EditorClassIdentifier: 
-  _image: {fileID: 0}
+  _weaponLevel: 2
+  "_numberMaxAmmunitionsInStripper\u0421lip": 8
+  "_numberMaxStripper\u0421lip": 5
+  _secondsBetweenShot: 0.2
+  _shutterTwistTime: 0
+  _timeReload: 2.6
+  _sprite: {fileID: 21300000, guid: 7e5c81bc85492c34d9de45706293c663, type: 3}
+  _audio: {fileID: 0}

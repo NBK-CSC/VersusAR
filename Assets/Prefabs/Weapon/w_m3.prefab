@@ -160,10 +160,10 @@ MonoBehaviour:
   _weaponLevel: 4
   "_numberMaxAmmunitionsInStripper\u0421lip": 6
   "_numberMaxStripper\u0421lip": 5
-  _secondsBetweenShot: 0
-  _timeReload: 0
-  _shutterTwistTime: 0
-  _stripperClipItem: {fileID: 11400000, guid: c6fad5c7e67bde44eb0088040d3448ff, type: 2}
+  _secondsBetweenShot: 1.3
+  _shutterTwistTime: 0.7
+  _timeReload: 3.6
+  _weaponData: {fileID: 11400000, guid: b2b345ebba47bb742b37ab3520530161, type: 2}
   _ammunitionTemlate: {fileID: 4887040511739020427, guid: 63e5347a069873a4b9c8bdb27de48b74, type: 3}
   _shootPoint: {fileID: 424204049555709648}
   _defaultTransformParent: {fileID: 0}

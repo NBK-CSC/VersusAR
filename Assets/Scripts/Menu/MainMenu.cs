@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+namespace Menu
 {
-    public void LoadPlayScene()
+    public class MainMenu : MonoBehaviour
     {
-        SceneManager.LoadScene(1);
+        public void LoadPlayScene()
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }

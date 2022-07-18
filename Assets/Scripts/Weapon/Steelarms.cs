@@ -2,22 +2,17 @@ using UnityEngine;
 
 namespace Weapon
 {
-    public class Steelarms : MonoBehaviour, IWeapon
+    public class Steelarms : MonoBehaviour, IImpacting
     {
-        [Header("Characteristic")]
-        [SerializeField] private int _damage;
-        [SerializeField] private int _weaponLevel;
-        [SerializeField] private float _secondsBetweenHit;
-        [SerializeField] private float _distanceAttack;
-    
-        [Header("Others")]
+        [SerializeField] private SteelarmsData _weaponData;
         [SerializeField] private Soldier _owner;
         [SerializeField] private ParticleSystem _particleTrackBlow;
         [SerializeField] private Transform _defaultTransformParent;
 
-        public float DistanceImpact => _distanceAttack;
-        public int WeaponLevel => _weaponLevel;
-        public float SecondsBetweenImpact => _secondsBetweenHit;
+        public float DistanceImpact => _weaponData.DistanceAttack;
+        public int WeaponLevel => _weaponData.WeaponLevel;
+        public float SecondsBetweenImpact => _weaponData.SecondsBetweenHit;
+        public SteelarmsData WeaponData => _weaponData;
 
         public void Impact()
         {
@@ -27,7 +22,7 @@ namespace Weapon
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Soldier soldier) && !Equals(_owner, soldier))
-                soldier.TakeDamage(_damage);
+                soldier.TakeDamage(_weaponData.Damage);
         }
     
         public void ChangeQuality(Transform transformParent, bool isNotActive)
@@ -42,11 +37,6 @@ namespace Weapon
         public bool CanImpact()
         {
             return gameObject.activeSelf;
-        }
-    
-        public bool CanReload()
-        {
-            return false;
         }
     }
 }
