@@ -43,8 +43,9 @@ namespace Weapon
         {
             foreach (var stripperClipItem in _stripperClipItems)
             {
-                Destroy(stripperClipItem);
+                Destroy(stripperClipItem.gameObject);
             }
+            _stripperClipItems.Clear();
         }
     }
 }

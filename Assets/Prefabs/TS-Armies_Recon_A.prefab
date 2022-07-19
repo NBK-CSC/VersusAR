@@ -28,8 +28,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863465577884072018}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.11}
-  m_LocalScale: {x: 0.001, y: 0.002, z: 0.01}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.01}
   m_Children:
   - {fileID: 4215196852136609272}
   - {fileID: 4735945115236429177}
@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 2.84}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1920, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8344522305030969552
 Canvas:
@@ -3024,6 +3024,7 @@ GameObject:
   - component: {fileID: 7233679746355152981}
   - component: {fileID: 7233679746355152983}
   - component: {fileID: 4805453679696925109}
+  - component: {fileID: 6057246926861634916}
   m_Layer: 0
   m_Name: TS-Armies_Recon_A
   m_TagString: Untagged
@@ -3196,7 +3197,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soldier: {fileID: 7233679746355152983}
-  _soldierAnimator: {fileID: 7233679746093934815}
+--- !u!114 &6057246926861634916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233679746084465115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99d19e11ba5e424da4b0deb5192bb14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soldier: {fileID: 7233679746355152983}
 --- !u!1 &7233679746084466285
 GameObject:
   m_ObjectHideFlags: 0
@@ -7739,11 +7752,6 @@ PrefabInstance:
       objectReference: {fileID: 7233679746084170197}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
---- !u!4 &6453772734312131064 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
-  m_PrefabInstance: {fileID: 4911582652001038640}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1713863809219440375 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6044301754438393799, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
@@ -7755,3 +7763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8f8fa8c3a568e49a9e604c1053b937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6453772734312131064 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2141772224124197064, guid: 116a2ceb817326f478c5ea1469cc449a, type: 3}
+  m_PrefabInstance: {fileID: 4911582652001038640}
+  m_PrefabAsset: {fileID: 0}

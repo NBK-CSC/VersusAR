@@ -5,8 +5,7 @@ using Weapon;
 public class SoldierAudioManager : MonoBehaviour
 {
     [SerializeField] private Soldier _soldier;
-
-
+    
     private void OnEnable()
     {
         _soldier.WeaponImpacted += PlayImpact;
