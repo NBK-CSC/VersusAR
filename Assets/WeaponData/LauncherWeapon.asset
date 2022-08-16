@@ -18,5 +18,8 @@ MonoBehaviour:
   _secondsBetweenShot: 0
   _shutterTwistTime: 0
   _timeReload: 3.6
-  _sprite: {fileID: 0}
-  _audio: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: be192e3123baa0c41bf944079e097c0e, type: 3}
+  _impactAudio: {fileID: 0}
+  _impactAudioVolume: 1
+  _reloadAudio: {fileID: 0}
+  _reloadAudioVolume: 1

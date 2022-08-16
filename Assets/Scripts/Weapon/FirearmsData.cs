@@ -17,8 +17,12 @@ namespace Weapon
   
         [Header("Audio/Sprites")]
         [SerializeField] private Sprite _sprite;
+        [SerializeField] private AudioClip _drawAudio;
+        [SerializeField][Range(0,1)] private float _drawAudioVolume;
         [SerializeField] private AudioClip _impactAudio;
+        [SerializeField][Range(0,1)] private float _impactAudioVolume;
         [SerializeField] private AudioClip _reloadAudio;
+        [SerializeField][Range(0,1)] private float _reloadAudioVolume;
         
         public int WeaponLevel => _weaponLevel;
         public int NumberMaxAmmunitionsInStripperСlip => _numberMaxAmmunitionsInStripperСlip;
@@ -27,7 +31,11 @@ namespace Weapon
         public float ShutterTwistTime => _shutterTwistTime;
         public float TimeReload => _timeReload;
         public Sprite Sprite => _sprite;
+        public AudioClip DrawAudio => _drawAudio;
         public AudioClip ImpactAudio => _impactAudio;
         public AudioClip ReloadAudio => _reloadAudio;
+        public float DrawAudioVolume => _drawAudioVolume;
+        public float ImpactAudioVolume => _impactAudioVolume;
+        public float ReloadAudioVolume => _reloadAudioVolume;
     }
 }

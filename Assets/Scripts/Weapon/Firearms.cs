@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Weapon
 {
+    [RequireComponent(typeof(AudioSource))]
     public class Firearms : MonoBehaviour, IRecharging
     {
         [Header("Ammunition and Settings")]
@@ -24,7 +25,12 @@ namespace Weapon
         public float TimeReload => _weaponData.TimeReload;
         public int AmountStripperСlip => _amountStripperСlip;
         public AudioClip ImpactAudio => _weaponData.ImpactAudio;
+        public float ImpactAudioVolume => _weaponData.ImpactAudioVolume;
         public AudioClip ReloadAudio => _weaponData.ReloadAudio;
+        public float ReloadAudioVolume => _weaponData.ReloadAudioVolume;
+        public AudioClip DrawAudio => _weaponData.DrawAudio;
+        public float DrawAudioVolume => _weaponData.DrawAudioVolume;
+
         public Sprite StripperClipSprite => _weaponData.Sprite;
         private void Start()
         {

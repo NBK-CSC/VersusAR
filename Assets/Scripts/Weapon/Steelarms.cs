@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Weapon
 {
+    [RequireComponent(typeof(AudioSource))]
     public class Steelarms : MonoBehaviour, IImpacting
     {
         [SerializeField] private SteelarmsData _weaponData;
@@ -13,6 +14,9 @@ namespace Weapon
         public int WeaponLevel => _weaponData.WeaponLevel;
         public float SecondsBetweenImpact => _weaponData.SecondsBetweenHit;
         public AudioClip ImpactAudio => _weaponData.ImpactAudio;
+        public float ImpactAudioVolume => _weaponData.ImpactAudioVolume;
+        public AudioClip DrawAudio => _weaponData.DrawAudio;
+        public float DrawAudioVolume => _weaponData.DrawAudioVolume;
 
         public void Impact()
         {

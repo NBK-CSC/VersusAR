@@ -20,4 +20,6 @@ MonoBehaviour:
   _timeReload: 3.6
   _sprite: {fileID: 21300000, guid: e226cc3601432d340872fc020266bfbb, type: 3}
   _impactAudio: {fileID: 0}
+  _impactAudioVolume: 1
   _reloadAudio: {fileID: 0}
+  _reloadAudioVolume: 1
