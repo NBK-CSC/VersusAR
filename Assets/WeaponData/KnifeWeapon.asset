@@ -16,5 +16,7 @@ MonoBehaviour:
   _weaponLevel: 1
   _secondsBetweenHit: 1
   _distanceAttack: 5
-  _impactAudio: {fileID: 0}
+  _drawAudio: {fileID: 8300000, guid: 3538bf4b9537d0f43938e4dd65c27960, type: 3}
+  _drawAudioVolume: 1
+  _impactAudio: {fileID: 8300000, guid: 9d85da4523b1b2045848051dcc1c2d41, type: 3}
   _impactAudioVolume: 1
